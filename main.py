@@ -22,7 +22,6 @@ llm = AzureOpenAI(
     azure_endpoint=os.getenv("OPENAI_AZURE_ENDPOINT"),
     api_key = os.getenv("OPENAI_API_KEY"),
     api_version = os.getenv("OPENAI_AZURE_API_VERSION"),
-    model=os.getenv("LLM_NAME"), 
     temperature=0.0
 )
 
@@ -30,7 +29,7 @@ Settings.llm = llm
 Settings.embed_model = LangchainEmbedding(
     AzureOpenAIEmbeddings(
         azure_endpoint=os.getenv("OPENAI_AZURE_ENDPOINT"),
-        deployment_id=os.getenv("EMBEDDING_MODEL_INSTANCE")
+        model=os.getenv("EMBEDDING_MODEL_INSTANCE")
     )
 )
 

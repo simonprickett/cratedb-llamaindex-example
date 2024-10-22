@@ -85,14 +85,19 @@ Run the code like so:
 python main.py
 ```
 
-Here's the expected (truncated) output:
+Here's the expected output:
 
 ```
+Creating SQLAlchemy engine...
+Connecting to CrateDB...
+Creating SQLDatabase instance...
+Creating QueryEngine...
+Running query...
+> Source (Doc id: b2b0afac-6fb6-4674-bc80-69941a8c10a5): [(17.033333333333335,)]
 Query was: What is the average value for sensor 1?
-
 Answer was: The average value for sensor 1 is 17.033333333333335.
 {
-    'fe4be76e-c47c-4427-921a-ea93e61b7e6e': {
+    'b2b0afac-6fb6-4674-bc80-69941a8c10a5': {
         'sql_query': 'SELECT AVG(value) FROM time_series_data WHERE sensor_id = 1', 
         'result': [
             (17.033333333333335,)
