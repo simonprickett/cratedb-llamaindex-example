@@ -1,6 +1,6 @@
 # Connecting CrateDB Data to an LLM with LlamaIndex and Azure OpenAI
 
-Original community post is [here](https://community.cratedb.com/t/how-to-connect-your-cratedb-data-to-llm-with-llamaindex-and-azure-openai/1612).
+This repository provides an updated codebase for [this tutorial](https://community.cratedb.com/t/how-to-connect-your-cratedb-data-to-llm-with-llamaindex-and-azure-openai/1612) on the CrateDB community forum.  You should read the tutorial for instructions on how to set up the components that you need on Azure, and use this README for setting up CrateDB and the Python code.
 
 This has been tested using:
 
@@ -11,6 +11,8 @@ This has been tested using:
 ## Database Setup
 
 You will need a CrateDB Cloud database: sign up [here](https://console.cratedb.cloud/) and use the free "CRFREE" tier.
+
+Make a note of the hostname, username and password for your database.  You'll need those when configuring the environment file later.
 
 Create a table in CrateDB:
 
@@ -73,9 +75,22 @@ pip install llama-index-llms-azure-openai
 
 ## Configure your Environment
 
-Configure your environment:
+To configure your environment, copy the provided [`env.example`](./env.example) file to a new file named `.env`, then open it with a text editor.
 
-Example `.env` file - see [`env.example`](./env.example).
+Set the values in the file as follows:
+
+```
+OPENAI_API_KEY=<Your key from Azure>
+OPENAI_API_TYPE=azure
+OPENAI_AZURE_ENDPOINT=https://<Your endpoint from Azure e.g. myendpoint.openai.azure.com>
+OPENAI_AZURE_API_VERSION=2024-08-01-preview
+LLM_INSTANCE=<The name of your Chat GPT 3.5 turbo instance from Azure>
+EMBEDDING_MODEL_INSTANCE=<The name of your Text Embedding Ada 2.0 instance from Azure>
+CRATEDB_URL="crate://<Database user name>:<Database password>@<Database host>:4200/?ssl=true"
+CRATEDB_TABLE_NAME=time_series_data
+```
+
+Save your changes. 
 
 ## Run the Code
 
