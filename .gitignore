@@ -4,3 +4,4 @@ venv/
 *.bak
 *.tmp
 *.pyc
+.DS_Store
