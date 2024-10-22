@@ -59,20 +59,6 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
-Individual dependencies (using this as a scratchpad, will slim it down to the minimum requirements when it is working):
-
-```bash
-pip install python-dotenv
-pip install openai
-pip install sqlalchemy-crate
-pip install llama-index
-pip install langchain
-pip install langchain-community
-pip install langchain-openai
-pip install llama-index-embeddings-langchain
-pip install llama-index-llms-azure-openai
-```
-
 ## Configure your Environment
 
 To configure your environment, copy the provided [`env.example`](./env.example) file to a new file named `.env`, then open it with a text editor.
