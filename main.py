@@ -14,14 +14,14 @@ load_dotenv()
 
 openai.api_type = os.getenv("OPENAI_API_TYPE")
 openai.azure_endpoint = os.getenv("OPENAI_AZURE_ENDPOINT")
-openai.api_version = os.getenv("OPENAI_API_VERSION")
+openai.api_version = os.getenv("OPENAI_AZURE_API_VERSION")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 llm = AzureOpenAI(
     engine=os.getenv("LLM_INSTANCE"), 
     azure_endpoint=os.getenv("OPENAI_AZURE_ENDPOINT"),
-    api_key = os.getenv("OPENAI_API_KEY"), # TODO rename to include Azure.
-    api_version = os.getenv("OPENAI_API_VERSION"), # TODO rename to include Azure.
+    api_key = os.getenv("OPENAI_API_KEY"),
+    api_version = os.getenv("OPENAI_AZURE_API_VERSION"),
     model=os.getenv("LLM_NAME"), 
     temperature=0.0
 )
@@ -34,7 +34,6 @@ Settings.embed_model = LangchainEmbedding(
     )
 )
 
-print(os.getenv("CRATEDB_URL"))
 print("Creating SQLAlchemy engine...")
 engine_crate = sa.create_engine(os.getenv("CRATEDB_URL"))
 print("Connecting to CrateDB...")
