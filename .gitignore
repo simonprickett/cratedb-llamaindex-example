@@ -1,0 +1,6 @@
+venv/
+.env
+*.swp
+*.bak
+*.tmp
+*.pyc
